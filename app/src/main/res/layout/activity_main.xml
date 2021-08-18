@@ -6,4 +6,273 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/see"
+        android:scaleType="centerCrop"
+        android:src="@drawable/see_wallpaper"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/content_start"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/content_end"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <TextView
+        android:id="@+id/calculation_window"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner"
+        android:gravity="end"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="14dp"
+        android:text="@string/Key_0"
+        android:textColor="@color/black_1"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/key_all_clear"
+        app:layout_constraintEnd_toStartOf="@id/content_end"
+        app:layout_constraintStart_toStartOf="@id/content_start" />
+
+    <Button
+        android:id="@+id/div_sign"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/div_sign"
+        app:layout_constraintBottom_toTopOf="@+id/mul_sign"
+        app:layout_constraintEnd_toStartOf="@+id/content_end"
+        app:layout_constraintStart_toEndOf="@+id/key_percent" />
+
+    <Button
+        android:id="@+id/key_percent"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/key_percent"
+        app:layout_constraintBottom_toTopOf="@+id/key_nine"
+        app:layout_constraintEnd_toStartOf="@+id/div_sign"
+        app:layout_constraintStart_toEndOf="@+id/erase_to_the_left" />
+
+    <Button
+        android:id="@+id/erase_to_the_left"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/erase_to_the_left_sign"
+        app:layout_constraintBottom_toTopOf="@+id/key_nine"
+        app:layout_constraintEnd_toStartOf="@+id/key_percent"
+        app:layout_constraintStart_toEndOf="@+id/key_all_clear" />
+
+    <Button
+        android:id="@+id/key_all_clear"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/key_all_clear"
+        app:layout_constraintBottom_toTopOf="@+id/key_eight"
+        app:layout_constraintEnd_toStartOf="@id/erase_to_the_left"
+        app:layout_constraintStart_toEndOf="@+id/content_start" />
+
+    <Button
+        android:id="@+id/mul_sign"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/mul_sign"
+        app:layout_constraintBottom_toTopOf="@+id/sub_sign"
+        app:layout_constraintEnd_toStartOf="@+id/content_end"
+        app:layout_constraintStart_toEndOf="@+id/key_nine" />
+
+    <Button
+        android:id="@+id/key_nine"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/key_9"
+        app:layout_constraintBottom_toTopOf="@+id/key_six"
+        app:layout_constraintEnd_toStartOf="@+id/mul_sign"
+        app:layout_constraintStart_toEndOf="@+id/key_eight" />
+
+    <Button
+        android:id="@+id/key_eight"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/key_8"
+        app:layout_constraintBottom_toTopOf="@+id/key_five"
+        app:layout_constraintEnd_toStartOf="@id/key_nine"
+        app:layout_constraintStart_toEndOf="@+id/key_seven" />
+
+    <Button
+        android:id="@+id/key_seven"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/key_7"
+        app:layout_constraintBottom_toTopOf="@+id/key_four"
+        app:layout_constraintEnd_toStartOf="@+id/key_eight"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/content_start" />
+
+    <Button
+        android:id="@+id/sub_sign"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/sub_sign"
+        app:layout_constraintBottom_toTopOf="@+id/add_sign"
+        app:layout_constraintEnd_toStartOf="@+id/content_end"
+        app:layout_constraintStart_toEndOf="@+id/key_six" />
+
+    <Button
+        android:id="@+id/key_six"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/key_6"
+        app:layout_constraintBottom_toTopOf="@+id/key_three"
+        app:layout_constraintEnd_toStartOf="@+id/sub_sign"
+        app:layout_constraintStart_toEndOf="@+id/key_five" />
+
+    <Button
+        android:id="@+id/key_five"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/key_5"
+        app:layout_constraintBottom_toTopOf="@+id/key_two"
+        app:layout_constraintEnd_toStartOf="@id/key_six"
+        app:layout_constraintStart_toEndOf="@+id/key_four" />
+
+    <Button
+        android:id="@+id/key_four"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/key_4"
+        app:layout_constraintBottom_toTopOf="@+id/key_one"
+        app:layout_constraintEnd_toStartOf="@+id/key_five"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/content_start" />
+
+    <Button
+        android:id="@+id/add_sign"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/key_plus"
+        app:layout_constraintBottom_toTopOf="@+id/key_equal"
+        app:layout_constraintEnd_toStartOf="@+id/content_end"
+        app:layout_constraintStart_toEndOf="@+id/key_three" />
+
+    <Button
+        android:id="@+id/key_three"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/key_3"
+        app:layout_constraintBottom_toTopOf="@+id/key_equal"
+        app:layout_constraintEnd_toStartOf="@+id/add_sign"
+        app:layout_constraintStart_toEndOf="@+id/key_two" />
+
+    <Button
+        android:id="@+id/key_two"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/key_2"
+        app:layout_constraintBottom_toTopOf="@+id/key_comma"
+        app:layout_constraintEnd_toStartOf="@id/key_three"
+        app:layout_constraintStart_toEndOf="@+id/key_one" />
+
+    <Button
+        android:id="@+id/key_one"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/key_1"
+        app:layout_constraintBottom_toTopOf="@+id/key_zero"
+        app:layout_constraintEnd_toStartOf="@+id/key_two"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/content_start" />
+
+    <Button
+        android:id="@+id/key_zero"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/Key_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/key_comma"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/content_start" />
+
+    <Button
+        android:id="@+id/key_comma"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/key_comma"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/key_equal"
+        app:layout_constraintStart_toStartOf="@+id/key_three" />
+
+    <Button
+        android:id="@+id/key_equal"
+        style="@style/CustomButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/key_equal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/content_end"
+        app:layout_constraintStart_toEndOf="@+id/key_comma" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
