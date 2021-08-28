@@ -126,15 +126,4 @@ class MainActivity : AppCompatActivity(), Presenter.View {
     override fun changeButtonText() {
         clearAllBtn.text = "c"
     }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        when (newConfig.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-            Configuration.UI_MODE_NIGHT_NO -> {
-                Toast.makeText(this, "mode night no", Toast.LENGTH_SHORT).show()
-            } // Night mode is not active, we're using the light theme
-            Configuration.UI_MODE_NIGHT_YES -> {
-                Toast.makeText(this, "mode night yes", Toast.LENGTH_SHORT).show()
-            } // Night mode is active, we're using dark theme
-        }
-    }
 }
