@@ -2,9 +2,8 @@ package com.example.homeworkcalculator.presenter
 
 import com.example.homeworkcalculator.model.Model
 
-class Presenter(_view: View) {
+class Presenter(private val view: View) {
 
-    private var view: View = _view
     private var model: Model = Model()
 
     init {

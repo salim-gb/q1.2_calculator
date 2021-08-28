@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="guide_line_begin">16dp</dimen>
+    <dimen name="guide_line_end">16dp</dimen>
+    <dimen name="text_view_margin_small">8dp</dimen>
+    <dimen name="text_view_padding_horizontal">10dp</dimen>
+    <dimen name="text_view_padding_vertical_medium">14dp</dimen>
+    <dimen name="text_view_padding_vertical_small">2dp</dimen>
+    <dimen name="text_view_size_big">36sp</dimen>
+    <dimen name="text_view_size_medium">32sp</dimen>
+    <dimen name="btn_text_size_big">36sp</dimen>
+    <dimen name="btn_text_size_medium">28sp</dimen>
+    <dimen name="btn_text_size_small">28sp</dimen>
+    <dimen name="btn_margin_medium">10dp</dimen>
+    <dimen name="btn_padding_medium">8dp</dimen>
+    <dimen name="btn_padding_small">4dp</dimen>
+    <dimen name="btn_padding_0">0dp</dimen>
+    <dimen name="guide_line_width">0dp</dimen>
+    <dimen name="guide_line_height">0dp</dimen>
+</resources>
