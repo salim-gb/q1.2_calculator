@@ -17,4 +17,6 @@
     <dimen name="btn_padding_0">0dp</dimen>
     <dimen name="guide_line_width">0dp</dimen>
     <dimen name="guide_line_height">0dp</dimen>
+    <dimen name="margin_medium">8dp</dimen>
+    <dimen name="text_view_size_small">18sp</dimen>
 </resources>

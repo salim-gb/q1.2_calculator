@@ -1,48 +1,53 @@
 package com.example.homeworkcalculator.view
 
-import android.content.res.Configuration
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.CheckBox
 import android.widget.TextView
-import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homeworkcalculator.R
-import com.example.homeworkcalculator.domain.AppTheme
 import com.example.homeworkcalculator.presenter.Presenter
 import com.example.homeworkcalculator.storage.ThemeStorage
 
 class MainActivity : AppCompatActivity(), Presenter.View {
-    val TAG = "MainActivityTAG"
     private var presenter: Presenter? = null
 
     private lateinit var calcTextView: TextView
     private lateinit var resultTextView: TextView
-    private lateinit var clearAllBtn: Button
+    private lateinit var clearBtn: Button
     private lateinit var equalBtn: Button
+    private lateinit var eraseToLeftBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val storage = ThemeStorage(this)
-        val isChecked = storage.getAppTheme().idChecked
         setTheme(storage.getAppTheme().theme)
 
         setContentView(R.layout.activity_main)
+        supportActionBar?.hide()
+
+        val activityResult: ActivityResultLauncher<Intent> =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == Activity.RESULT_OK) {
+                    val value = result.data?.getBooleanExtra("KEY_THEME", false)
+                    if (value == storage.getAppTheme().idChecked) {
+                        recreate()
+                    }
+                }
+            }
 
         presenter = Presenter(this)
 
-        val icon: CheckBox = findViewById(R.id.icon_change_theme)
-        icon.isChecked = isChecked
-
-        icon.setOnCheckedChangeListener { _, _isChecked ->
-            if (!_isChecked) {
-                storage.setAppTheme(AppTheme.WHITE, false)
-            } else {
-                storage.setAppTheme(AppTheme.BLACK, true)
+        val settingBtn: Button = findViewById(R.id.icon_settings)
+        settingBtn.setOnClickListener {
+            Intent(this, SettingsActivity::class.java).also {
+                activityResult.launch(it)
             }
-            recreate()
         }
     }
 
@@ -64,7 +69,8 @@ class MainActivity : AppCompatActivity(), Presenter.View {
         val subSign: Button = findViewById(R.id.sub_sign)
         val mulSign: Button = findViewById(R.id.mul_sign)
         val divSign: Button = findViewById(R.id.div_sign)
-        clearAllBtn = findViewById(R.id.key_all_clear)
+        clearBtn = findViewById(R.id.key_clear)
+        eraseToLeftBtn = findViewById(R.id.erase_to_the_left)
 
         mapOf(
             keyZero to 0,
@@ -81,7 +87,6 @@ class MainActivity : AppCompatActivity(), Presenter.View {
             btn.setOnClickListener {
                 presenter?.handlePressDigit(value)
                 showResultTextView()
-                changeButtonText()
             }
         }
 
@@ -100,8 +105,13 @@ class MainActivity : AppCompatActivity(), Presenter.View {
             presenter?.handleEqualPress()
         }
 
-        clearAllBtn.setOnClickListener {
-            presenter?.handlePressSign("/")
+        clearBtn.setOnClickListener {
+            presenter?.handlePressClearSign()
+            hideResultTextView()
+        }
+
+        eraseToLeftBtn.setOnClickListener {
+            presenter?.handlePressEraseSign()
         }
     }
 
@@ -121,9 +131,5 @@ class MainActivity : AppCompatActivity(), Presenter.View {
     override fun hideResultTextView() {
         resultTextView.text = ""
         resultTextView.visibility = View.GONE
-    }
-
-    override fun changeButtonText() {
-        clearAllBtn.text = "c"
     }
 }

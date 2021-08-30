@@ -17,6 +17,9 @@
     <string name="mul_sign">×</string>
     <string name="div_sign">÷</string>
     <string name="erase_to_the_left_sign">⌫</string>
-    <string name="key_all_clear">AC</string>
+    <string name="key_clear">c</string>
     <string name="key_percent">%</string>
+    <string name="setting_activity_name">Settings</string>
+    <string name="title_close_icon">close</string>
+    <string name="enable_dark_theme">Enable dark theme</string>
 </resources>
