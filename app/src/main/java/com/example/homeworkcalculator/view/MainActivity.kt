@@ -1,15 +1,20 @@
 package com.example.homeworkcalculator.view
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homeworkcalculator.R
+import com.example.homeworkcalculator.domain.AppTheme
 import com.example.homeworkcalculator.presenter.Presenter
+import com.example.homeworkcalculator.storage.ThemeStorage
 
 class MainActivity : AppCompatActivity(), Presenter.View {
-
+    val TAG = "MainActivityTAG"
     private var presenter: Presenter? = null
 
     private lateinit var calcTextView: TextView
@@ -19,10 +24,26 @@ class MainActivity : AppCompatActivity(), Presenter.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val storage = ThemeStorage(this)
+        val isChecked = storage.getAppTheme().idChecked
+        setTheme(storage.getAppTheme().theme)
+
         setContentView(R.layout.activity_main)
 
         presenter = Presenter(this)
 
+        val icon: CheckBox = findViewById(R.id.icon_change_theme)
+        icon.isChecked = isChecked
+
+        icon.setOnCheckedChangeListener { _, _isChecked ->
+            if (!_isChecked) {
+                storage.setAppTheme(AppTheme.WHITE, false)
+            } else {
+                storage.setAppTheme(AppTheme.BLACK, true)
+            }
+            recreate()
+        }
     }
 
     override fun initView() {
@@ -45,20 +66,33 @@ class MainActivity : AppCompatActivity(), Presenter.View {
         val divSign: Button = findViewById(R.id.div_sign)
         clearAllBtn = findViewById(R.id.key_all_clear)
 
-        listOf(
-            keyZero, keyOne, keyTwo, keyThree, keyFour, keyFive,
-            keySix, keySeven, keyEight, keyNine
-        ).forEach { btn ->
+        mapOf(
+            keyZero to 0,
+            keyOne to 1,
+            keyTwo to 2,
+            keyThree to 3,
+            keyFour to 4,
+            keyFive to 5,
+            keySix to 6,
+            keySeven to 7,
+            keyEight to 8,
+            keyNine to 9,
+        ).forEach { (btn, value) ->
             btn.setOnClickListener {
-                presenter?.handlePressDigit(btn.text.toString().toInt())
+                presenter?.handlePressDigit(value)
                 showResultTextView()
                 changeButtonText()
             }
         }
 
-        listOf(addSign, subSign, mulSign, divSign).forEach { btn ->
+        mapOf(
+            addSign to "+",
+            subSign to "-",
+            mulSign to "×",
+            divSign to "÷"
+        ).forEach { (btn, value) ->
             btn.setOnClickListener {
-                presenter?.handlePressSign(btn.text.toString())
+                presenter?.handlePressSign(value)
             }
         }
 
@@ -81,8 +115,7 @@ class MainActivity : AppCompatActivity(), Presenter.View {
     }
 
     override fun showResultTextView() {
-        if (resultTextView.visibility == View.GONE)
-            resultTextView.visibility = View.VISIBLE
+        resultTextView.visibility = View.VISIBLE
     }
 
     override fun hideResultTextView() {

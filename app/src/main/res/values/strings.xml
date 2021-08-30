@@ -1,23 +1,22 @@
 <resources>
     <string name="app_name">Home Work Calculator</string>
-    <string name="key_comma">,</string>
-    <string name="key_equal">=</string>
-    <string name="Key_0">0</string>
-    <string name="key_1">1</string>
-    <string name="key_2">2</string>
-    <string name="key_3">3</string>
-    <string name="key_4">4</string>
-    <string name="key_5">5</string>
-    <string name="key_6">6</string>
-    <string name="key_7">7</string>
-    <string name="key_8">8</string>
-    <string name="key_9">9</string>
-    <string name="key_plus">+</string>
+    <string name="comma">,</string>
+    <string name="equal_sign">=</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="plus_sign">+</string>
     <string name="sub_sign">-</string>
     <string name="mul_sign">×</string>
     <string name="div_sign">÷</string>
     <string name="erase_to_the_left_sign">⌫</string>
     <string name="key_all_clear">AC</string>
     <string name="key_percent">%</string>
-    <string name="see">see</string>
 </resources>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomButtonStyle" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/black_1</item>
+        <item name="android:textSize">@dimen/btn_text_size_big</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:paddingTop">@dimen/btn_padding_medium</item>
+        <item name="android:paddingBottom">@dimen/btn_padding_medium</item>
+        <item name="fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="CustomButtonStyle.Black">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/dark_gray</item>
+    </style>
+
+    <style name="CustomButtonStyle.Land">
+        <item name="android:paddingTop">@dimen/btn_padding_small</item>
+        <item name="android:paddingBottom">@dimen/btn_padding_small</item>
+        <item name="android:textSize">@dimen/btn_text_size_small</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="CustomButtonStyleSign">
+        <item name="android:textColor">@color/orange</item>
+    </style>
+
+    <style name="CustomButtonStyle.Land.Sign">
+        <item name="android:textColor">@color/orange</item>
+    </style>
+
+    <style name="CustomTextViewStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_marginBottom">@dimen/text_view_margin_small</item>
+        <item name="android:gravity">end</item>
+        <item name="android:paddingStart">@dimen/text_view_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/text_view_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/text_view_padding_vertical_medium</item>
+        <item name="android:paddingBottom">@dimen/text_view_padding_vertical_medium</item>
+        <item name="android:textSize">@dimen/text_view_size_big</item>
+    </style>
+
+    <style name="CustomTextViewStyle.Land">
+        <item name="android:layout_marginBottom">@dimen/text_view_margin_small</item>
+        <item name="android:paddingTop">@dimen/text_view_padding_vertical_small</item>
+        <item name="android:paddingBottom">@dimen/text_view_padding_vertical_small</item>
+        <item name="android:textSize">@dimen/text_view_size_medium</item>
+    </style>
+
+    <style name="CalculatorTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="materialButtonStyle">@style/CustomButtonStyle</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="CalculatorThemeBlack" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="materialButtonStyle">@style/CustomButtonStyle.Black</item>
+        <item name="android:windowBackground">@color/dark_gray</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:statusBarColor">@color/dark_gray</item>
+    </style>
+
+    <style name="CalculatorTheme.Land">
+        <item name="materialButtonStyle">@style/CustomButtonStyle.Land</item>
+    </style>
+
+</resources>
