@@ -26,12 +26,22 @@ class Presenter(private val view: View) {
         view.updateCalcTextView(model.calculationText)
     }
 
+    fun handlePressClearSign() {
+        model.clearKeyPressed()
+        view.updateCalcTextView("0")
+    }
+
+    fun handlePressEraseSign() {
+        model.eraseToLeft()
+        view.updateCalcTextView(model.calculationText)
+        view.updateTextViewResult(model.doOperation())
+    }
+
     interface View {
         fun initView()
         fun updateCalcTextView(s: String)
         fun updateTextViewResult(s: String)
         fun showResultTextView()
         fun hideResultTextView()
-        fun changeButtonText()
     }
 }

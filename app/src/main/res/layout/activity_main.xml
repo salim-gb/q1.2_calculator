@@ -17,15 +17,19 @@
         android:id="@+id/content_end"
         android:layout_width="@dimen/guide_line_width"
         android:layout_height="@dimen/guide_line_height"
+        android:background="@color/black"
         android:orientation="vertical"
         app:layout_constraintGuide_end="@dimen/guide_line_end" />
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/icon_change_theme"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/icon_settings"
+        style="@style/Widget.App.Button.OutlinedButton.IconOnly"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:button="@drawable/sl_theme_24dp"
-        app:buttonTint="@android:color/darker_gray"
+        app:icon="@drawable/ic_baseline_settings_24"
+        app:iconTint="@color/orange"
+        android:gravity="center_horizontal"
+        app:iconPadding="@dimen/btn_padding_0"
         app:layout_constraintStart_toStartOf="@id/content_start"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,14 +90,14 @@
         android:text="@string/erase_to_the_left_sign"
         app:layout_constraintBottom_toTopOf="@+id/key_eight"
         app:layout_constraintEnd_toStartOf="@+id/key_percent"
-        app:layout_constraintStart_toEndOf="@+id/key_all_clear" />
+        app:layout_constraintStart_toEndOf="@+id/key_clear" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/key_all_clear"
+        android:id="@+id/key_clear"
         style="@style/CustomButtonStyleSign"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/key_all_clear"
+        android:text="@string/key_clear"
         app:layout_constraintBottom_toTopOf="@+id/key_seven"
         app:layout_constraintEnd_toStartOf="@id/erase_to_the_left"
         app:layout_constraintStart_toEndOf="@+id/content_start" />
